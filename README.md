@@ -1,14 +1,16 @@
-# ***Flexcom***
+![Flexcom](https://user-images.githubusercontent.com/87675824/184260425-a5dfbdb6-f9b9-4002-9dac-050b3e1c91ce.png)
+
+# ***✨ Flexcom*** 
 
 Flexcom is a intepreted command language written in GML (GameMaker Studio 2.3).
 It can be used for debugging purposes or for any game that requires a console, for example a game about programming.
 Flexcom also comes with a built-in IDE with full customisable colors and functions, it isn't yet able to declare variables tho, but this will change in a short amount of time.
 
-## **Name origin**
+## **⚙️ Name origin**
 
 Flexcom is named after the combination of the word "flex" (which stands for flexible) and "com" (which stands for command), in fact it is a very flexible command language!
 
-# **Installation**
+# **📁 Installation**
 
 Installing Flexcom is very straight forward.
 Download the project, open it inside GMS and then go to:
@@ -21,11 +23,11 @@ Once you've created the package you can go into your own project and import it b
 
 After this you've succesfully installed and imported Flexcom!
 
-# **Documentation**
+# **📄 Documentation**
 
 For using Flexcom and it's console you can just select the `oConsole` and the `oInterpreter` file and put it inside your desired room.
 
-## **Executing code**
+## **💾 Executing code**
 
 Your Flexcom code must always start with the `run` function, followed by how many times you want to run your code.<br/>
 When you're ready to run your code just press `f1`, then the code will be intepreted and executed.<br/>
@@ -35,7 +37,7 @@ Errors will not be shown until the line returning the error is executed.
 
 This will print "Hello world" to the output window 2 times.
 
-## **Functions**
+## **🍮 Functions**
 
 Here you can find a list of functions and how to use them.<br/>
 Inside the project, all the Flexcom functions are located in the ``InterpreterFunctions`` script.
@@ -81,7 +83,7 @@ This is what we can do with all the functions we know.
 
 ![carbon (7)](https://user-images.githubusercontent.com/87675824/184041004-0a29bdd8-139e-4a8c-9102-8da9aad3bf6d.png)
 
-## **Costants**
+## **🍮 Costants**
 
 The Flexcom constants are not the same as the GameMaker constants, and here is a list of all of them:
 
@@ -107,7 +109,7 @@ Printing TAU
 
 Here we are changing a variable into a ``con`` (constant) type value
 
-## **Types**
+## **🍮 Types**
 
 Types are a very important part of Flexom, since they're used for setting the variable type when using the `chg` function.<br/>
 There are 5 types of variables, but for convenience there are also 2 assign operators ``:`` and ``=>``. 
@@ -136,7 +138,7 @@ Here's an example of setting a variabe to another variable.
 
 ![carbon (16)](https://user-images.githubusercontent.com/87675824/184243071-d2e3c5d5-4cef-4366-958d-8868f19113bf.png)
 
-## **Built in variables**
+## **🍮 Built in variables**
 
 Built in variables are mainly used for debugging purposes, but and can't be used for anything else YET.<br/>
 In the future i will add other functionalities for them, but I can't think of some at the moment.
@@ -155,8 +157,18 @@ nob, all instances in the room.
 it, the number of the curret iteration of the code.
 ```
 
-# **Recap**
+# **🍮 Recap**
 
 With what we've learned we can write a simple program for printing the fibonacci sequence.
 
-![carbon (18)](https://user-images.githubusercontent.com/87675824/184255076-1137b93d-ddb3-417f-b478-599e1171586f.png)
+![carbon (20)](https://user-images.githubusercontent.com/87675824/184255354-bd6dbe2b-0c7c-4271-b612-70a19f05f31f.png)
+
+We first need to create a object called oFibonacci or however you want it, and then set 3 variables in it's create event:
+
+```
+before = 1;
+current = 1;
+next = before + current;
+```
+
+After this setup, you can copy the code above.
