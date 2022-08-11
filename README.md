@@ -2,7 +2,11 @@
 
 Flexcom is a intepreted command language written in GML (GameMaker Studio 2.3).
 It can be used for debugging purposes or for any game that requires a console, for example a game about programming.
-Flexcom also comes with a built-in IDE with full customisable colors and functions.
+Flexcom also comes with a built-in IDE with full customisable colors and functions, it isn't yet able to declare variables tho, but this will change in a short amount of time.
+
+## **Name origin**
+
+Flexcom is named after the combination of the word "flex" (which stands for flexible) and "com" (which stands for command), in fact it is a very flexible command language!
 
 # **Installation**
 
@@ -23,10 +27,9 @@ For using Flexcom and it's console you can just select the `oConsole` and the `o
 
 ## **Executing code**
 
-Your Flexcom code must always start with the `run` function, followed by how many times you want to run your code.
-
-When you're ready to run your code just press `f1`, then the code will be intepreted and executed.
-error will not be shown until the line returning the error is executed.
+Your Flexcom code must always start with the `run` function, followed by how many times you want to run your code.<br/>
+When you're ready to run your code just press `f1`, then the code will be intepreted and executed.<br/>
+Errors will not be shown until the line returning the error is executed.
 
 ![carbon (11)](https://user-images.githubusercontent.com/87675824/184041346-8ec4c59a-6c9c-4769-84a9-f4a89bbca3c7.png)
 
@@ -34,8 +37,7 @@ This will print "Hello world" to the output window 2 times.
 
 ## **Functions**
 
-Here you can find a list of functions and how to use them.
-
+Here you can find a list of functions and how to use them.<br/>
 Inside the project, all the Flexcom functions are located in the ``InterpreterFunctions`` script.
 
 Following, a list of all the functions the number next the dollar sign symbolize how many arguments the functions takes.
@@ -60,22 +62,19 @@ Sure that can tell you what functions do, but here is a more in-depth guide on h
 This is a basic example of a Flexcom script, here we are first setting how many times the code should run (1) then setting the target object (Object1, note that the
 target object is very important, since it's the one that all the object related functions will use) and after setting it we print out it's ``default_var`` variable and setting the wait time to be 1 second using the ``hld``, so that it will wait 1 second before iterating through the code again (in this case this wasn't necessary since we only do 1 iteration).
 
-Let's now see how we can create set and change the variable of your target object.
+Let's now see how we can create set and change the variable of your target object.<br/>
 For this we will use the ``chg`` function, which is probably the most complicated one in the whole Flexcom language.
 
 ![carbon (9)](https://user-images.githubusercontent.com/87675824/184041208-c61c6a2a-9fe5-4a6f-8c44-e29b4ee47ef9.png)
 
 You can see how we use the ``chg`` function for setting the ``default_var`` variable into a number (type ``num``, scroll down for more informations about types),
-the ``chg`` function is very strange because it works in 2 different ways based on what you want to do (the first argument will always be the same, the variable name). 
-
-In this case since we want to set it to a magic number or a non variable then we need to first set the value type and then set the variable value.
-
+the ``chg`` function is very strange because it works in 2 different ways based on what you want to do (the first argument will always be the same, the variable name). <br/>
+In this case since we want to set it to a magic number or a non variable then we need to first set the value type and then set the variable value.<br/>
 If you wants to set the variable to another variable you'll need to do another process.
 
 ![carbon (10)](https://user-images.githubusercontent.com/87675824/184041287-d046f8de-eeff-4c9e-a022-a9ddf61e20f8.png)
 
-In this case we're instead setting the variable ``default_var`` to the variable ``second_variable``, you can see that instead of ``:`` we're using ``=>``, this is very important, because ``:`` is used for setting a variable to a non variable and ``=>`` is used for setting a variable to another variable.
-
+In this case we're instead setting the variable ``default_var`` to the variable ``second_variable``, you can see that instead of ``:`` we're using ``=>``, this is very important, because ``:`` is used for setting a variable to a non variable and ``=>`` is used for setting a variable to another variable.<br/>
 Also note how we're not setting the type here, since the type of a variable is already defined by the variable.
 
 This is what we can do with all the functions we know.
@@ -108,11 +107,56 @@ Printing TAU
 
 Here we are changing a variable into a ``con`` (constant) type value
 
+## **Types**
 
+Types are a very important part of Flexom, since they're used for setting the variable type when using the `chg` function.<br/>
+There are 5 types of variables, but for convenience there are also 2 assign operators ``:`` and ``=>``. 
 
+This is a list of all the variable types, including the 2 assign operators. You can also print a list of all the types inside the console, by using the  ``out`` command followed by the ``typ`` constant.
 
+```
+num, integers and non integers numeric values.
+str, string values and single characters.
+cnd, boolean values (true and false).
+eva, evaluation values, for example 1 + (2 ^ 3).
 
+:, used for assigning a non variabe value to a variable.
+=>, used for assigning a variable to another variable.
+```
 
+Here are 2 examples on how you can use types.
 
+![carbon (15)](https://user-images.githubusercontent.com/87675824/184242738-3ea2ca2b-fd31-4cc2-a789-ff1558ec6793.png)
 
+Here we are opening the target object and then setting it's ``default_var`` variable into a ``num`` type value. 
 
+Note that when assigning variables to a non variables you need to specify the type of the value, but when setting a variable to another variable you don't need to, if you do it will return an error. 
+
+Here's an example of setting a variabe to another variable.
+
+![carbon (16)](https://user-images.githubusercontent.com/87675824/184243071-d2e3c5d5-4cef-4366-958d-8868f19113bf.png)
+
+## **Built in variables**
+
+Built in variables are mainly used for debugging purposes, but and can't be used for anything else YET.<br/>
+In the future i will add other functionalities for them, but I can't think of some at the moment.
+
+For knowing the values of every built-in variable you need to print them by using the ``out`` function, followed by the built-in variable name.<br/>
+If the variable doesn't exists it will just print whatever you typed.
+
+Here's a list of all the built-in variables and what they return.
+
+```
+obj, current target object.
+vrs, all variables of the target object.
+cur, console room.
+rob, all objects in the room.
+nob, all instances in the room.
+it, the number of the curret iteration of the code.
+```
+
+# **Recap**
+
+With what we've learned we can write a simple program for printing the fibonacci sequence.
+
+![carbon (18)](https://user-images.githubusercontent.com/87675824/184255076-1137b93d-ddb3-417f-b478-599e1171586f.png)
