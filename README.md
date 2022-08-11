@@ -1,6 +1,6 @@
 # ***Flexcom***
 
-Flexcom is a command language written in GML (GameMaker Studio 2.3).
+Flexcom is a intepreted command language written in GML (GameMaker Studio 2.3).
 It can be used for debugging purposes or for any game that requires a console, for example a game about programming.
 Flexcom also comes with a built-in IDE with full customisable colors and functions.
 
@@ -21,9 +21,12 @@ After this you've succesfully installed and imported Flexcom!
 
 For using Flexcom and it's console you can just select the `oConsole` and the `oInterpreter` file and put it inside your desired room.
 
-## **Starting code**
+## **Executing code**
 
 Your Flexcom code must always start with the `run` function, followed by how many times you want to run your code.
+
+When you're ready to run your code just press `f1`, then the code will be intepreted and executed.
+error will not be shown until the line returning the error is executed.
 
 ![carbon (11)](https://user-images.githubusercontent.com/87675824/184041346-8ec4c59a-6c9c-4769-84a9-f4a89bbca3c7.png)
 
