@@ -1,14 +1,22 @@
 /// Define arguments
 function expression_evaluate(text)
 {
-	// Remove whitespace and replacing constats
+	// Remove whitespace and replacing constats and variables
 	text = string_replace_all(text, " ", "");
+	var vrs = string_split(text, "+");
+	for (var i = 0; i < array_length(vrs); i++)
+	{
+		if (variable_instance_exists(cobject.id, vrs[i])) 
+		{
+			text = string_replace(text, vrs[i], variable_instance_get(cobject.id, vrs[i]));
+		}
+	}
+	print(text);
 	for (var i = 0; i < array_length(global.CONSTANTS); i++)
 	{
 		text = string_replace(text, global.CONSTANTS[i].name,string(global.CONSTANTS[i].value));
 	}
-	print(text);
-
+	
 	var parenthesisLayer = 0;
 	var parenthesisStart, parenthesisEnd;
 
