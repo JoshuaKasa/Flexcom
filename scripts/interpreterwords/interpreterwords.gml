@@ -22,19 +22,21 @@ global.BUILT_IN = [
 				 new Value("cur", room_get_name(room)),
 				 new Value("rob", all),
 				 new Value("nob", instance_number(all))
+				 new Value("it", 0),
 ];
-#macro BUILTIN ["obj", "cur", "rob", "nob"]
+#macro BUILTIN ["obj", "cur", "rob", "nob", "it"]
 // obj = current opened object
 // cur = current room name
 // rob = all room objects
 // nob = number of objects in the room	
+// it = current code iteration
 global.CONSTANTS = [
 					new Value("fun", FUNCTIONS),
 					new Value("typ", TYPES),
 					new Value("blt", BUILTIN),
 					new Value("pi", pi),
 					new Value("tau", pi * 2),
-					new Value("e", 2.7182818),
+					new Value("e", 0.5772156649),
 					new Value("glr", 1.618),
 					new Value("sq2", sqrt(2))
 ];
@@ -48,5 +50,4 @@ global.CONSTANTS = [
 // glr = golden ratio
 // sq2 = square root of 2
 global.WORDS = array_mesh(array_mesh(FUNCTIONS,TYPES),array_mesh(BUILTIN,CONST));
-print(global.WORDS);
 // list of all functions, constants, built in variables and types

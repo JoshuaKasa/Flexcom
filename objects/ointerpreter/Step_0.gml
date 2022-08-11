@@ -51,6 +51,8 @@ if (running == true)
 			}
 		}
 		run_times -= 1;
+		current_i += 1;
+		global.BUILT_IN[5].value = current_i;
 	}
 	else if (run_times == 0)
 	{

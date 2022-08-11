@@ -1,4 +1,5 @@
 run_times = 0;
+current_i = 0;
 
 code = [];
 c = [];
