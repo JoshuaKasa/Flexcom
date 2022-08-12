@@ -55,6 +55,8 @@ $1 run Run times, this is the most important function in Flexcom, it's used for 
 $1 crt Object name, with this function you can create an object from the name of it.
 $1 com Text, com is used for setting a line as a comment.
 $1 hld Seconds, this function set the seconds between each code run. Note that this function can be ONLY used at the end of your script. 
+$4 dec Name, Changeable (ch/uch), Type, Value, this function will create a local variable that can be used for small scripts 
+$2-3 set (Arguments change based on what you want to change, see in-depth documentation below), this is the same as 'chg' but for local variables.
 ```
 
 Sure that can tell you what functions do, but here is a more in-depth guide on how to use some of them.
@@ -121,6 +123,8 @@ num, integers and non integers numeric values.
 str, string values and single characters.
 cnd, boolean values (true and false).
 eva, evaluation values, for example 1 + (2 ^ 3).
+ch, used for setting a variable to unchangeable, this means that the value will reset every time the code iterates
+uch, used for setting a variable to changeable, this means that the value will not reset every time the code iterates
 
 :, used for assigning a non variabe value to a variable.
 =>, used for assigning a variable to another variable.
@@ -156,6 +160,22 @@ rob, all objects in the room.
 nob, all instances in the room.
 it, the number of the curret iteration of the code.
 ```
+
+# **Variable declaration**
+With the new Flexcom update you can declare variables and play with them (you can't yet assign them to object).</br>
+You can declare a variable using the ``dec`` function and then set it's name, type and value.
+
+Here is an example of a variable declaration
+
+![carbon (21)](https://user-images.githubusercontent.com/87675824/184434877-1b2dbb63-0dbd-40b7-b0c4-3ac30958dfa2.png)
+
+Changing the value of a variable is very simple, you just do what you would do with the ``chg`` functiont but you use the ``set`` function.</br>
+This can ONLY be used with local Flexcom variables.
+
+Here is another example of putting the ``dec`` and the ``set`` function together for writing a simple script for calculating the area of a square 25 times and making that square bigger every iteration.</br>
+This is how it would look like in the IDE
+
+![Screenshot (546)](https://user-images.githubusercontent.com/87675824/184441363-d081ea91-968c-468e-90e2-869832f5d539.png)
 
 # **🍮 Recap**
 
