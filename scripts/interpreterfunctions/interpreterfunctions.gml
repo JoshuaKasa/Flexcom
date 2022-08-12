@@ -8,19 +8,19 @@ function expression_evaluate(text)
 	print(text);
 	for (var i = 0; i < array_length(variables); i++)
 	{
-		text = string_replace(text, variables[i].name,string(variables[i].value));
+		text = string_replace_all(text, variables[i].name,string(variables[i].value));
 	}
 	print(text);
 	for (var i = 0; i < array_length(vrs); i++)
 	{
 		if (variable_instance_exists(cobject.id, vrs[i]) && cobject != -1) 
 		{
-			text = string_replace(text, vrs[i], variable_instance_get(cobject.id, vrs[i]));
+			text = string_replace_all(text, vrs[i], variable_instance_get(cobject.id, vrs[i]));
 		}
 	}
 	for (var i = 0; i < array_length(global.CONSTANTS); i++)
 	{
-		text = string_replace(text, global.CONSTANTS[i].name,string(global.CONSTANTS[i].value));
+		text = string_replace_all(text, global.CONSTANTS[i].name,string(global.CONSTANTS[i].value));
 	}
 	
 	var parenthesisLayer = 0;
