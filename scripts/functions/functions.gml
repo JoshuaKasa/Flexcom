@@ -135,3 +135,14 @@ function array_mesh(array1, array2)
 
 	return array1;
 }
+
+function array_replace(array, value, new_value)
+{
+	var len = array_length(array);
+
+	for (var i = 0; i < len; i++)
+	{
+		if (array[i] == value) then array[i] = new_value;
+		break;
+	}
+}

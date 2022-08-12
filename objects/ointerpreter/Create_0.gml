@@ -4,7 +4,10 @@ current_i = 0;
 code = [];
 c = [];
 
-cobject = 0;
+cobject = -1;
 
 hold_time = 0;
 running = false;
+
+variables = [];
+variable_names = [];

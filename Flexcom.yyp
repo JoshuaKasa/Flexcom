@@ -2,7 +2,7 @@
   "resources": [
     {"id":{"name":"oInterpreter","path":"objects/oInterpreter/oInterpreter.yy",},"order":0,},
     {"id":{"name":"oConsole","path":"objects/oConsole/oConsole.yy",},"order":0,},
-    {"id":{"name":"interpreterWords","path":"scripts/interpreterWords/interpreterWords.yy",},"order":1,},
+    {"id":{"name":"InterpreterWords","path":"scripts/InterpreterWords/InterpreterWords.yy",},"order":1,},
     {"id":{"name":"shConsole","path":"shaders/shConsole/shConsole.yy",},"order":1,},
     {"id":{"name":"ColorTheme","path":"scripts/ColorTheme/ColorTheme.yy",},"order":4,},
     {"id":{"name":"ConsoleFunctions","path":"scripts/ConsoleFunctions/ConsoleFunctions.yy",},"order":5,},
@@ -10,6 +10,7 @@
     {"id":{"name":"Functions","path":"scripts/Functions/Functions.yy",},"order":1,},
     {"id":{"name":"fConsole","path":"fonts/fConsole/fConsole.yy",},"order":3,},
     {"id":{"name":"shConsoleOld","path":"shaders/shConsoleOld/shConsoleOld.yy",},"order":2,},
+    {"id":{"name":"InterpreterVariable","path":"scripts/InterpreterVariable/InterpreterVariable.yy",},"order":4,},
     {"id":{"name":"InterpreterFunctions","path":"scripts/InterpreterFunctions/InterpreterFunctions.yy",},"order":3,},
   ],
   "Options": [

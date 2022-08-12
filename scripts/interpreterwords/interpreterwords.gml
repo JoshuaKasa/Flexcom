@@ -1,4 +1,4 @@
-#macro FUNCTIONS ["mov", "out", "opn", "chg", "del", "run", "outv", "crt", "com", "hld"]
+#macro FUNCTIONS ["mov", "out", "opn", "chg", "del", "run", "outv", "crt", "com", "hld", "dec", "set"]
 // mov = move to another room
 // out = prints a variable
 // opn = opens an object to edit or check variables
@@ -8,20 +8,24 @@
 // crt = creates a object at the specified coordinates
 // com = comment a line
 // hld = set the time of which the code will be stopped every time it runs
-#macro TYPES ["num", "str", "cnd", "con", "eva", ":", "=>"]
+// dec = declares a variable
+// set = sets the value of a local variable
+#macro TYPES ["num", "str", "cnd", "con", "eva", "ch", "uch", ":", "=>"]
 // num = integer, float or double
 // str = string
 // cnd = condition value (boolean)
 // con = constant value
 // eva = evaluates the given expression
+// ch = changebale variable
+// uch = unchangebale variable
 // : = used to asign a variable a value
-// => = used to asign a variable the value of another variable
+// => = used to asign a variable the value of another variable or assigning value to a Flexcom variable
 global.BUILT_IN = [
 				 new Value("obj", "None"),
 				 new Value("vrs", "None"),
 				 new Value("cur", room_get_name(room)),
 				 new Value("rob", all),
-				 new Value("nob", instance_number(all))
+				 new Value("nob", instance_number(all)),
 				 new Value("it", 0),
 ];
 #macro BUILTIN ["obj", "cur", "rob", "nob", "it"]
@@ -29,14 +33,13 @@ global.BUILT_IN = [
 // cur = current room name
 // rob = all room objects
 // nob = number of objects in the room	
-// it = current code iteration
 global.CONSTANTS = [
 					new Value("fun", FUNCTIONS),
 					new Value("typ", TYPES),
 					new Value("blt", BUILTIN),
 					new Value("pi", pi),
 					new Value("tau", pi * 2),
-					new Value("e", 0.5772156649),
+					new Value("e", 2.7182818),
 					new Value("glr", 1.618),
 					new Value("sq2", sqrt(2))
 ];
@@ -50,4 +53,5 @@ global.CONSTANTS = [
 // glr = golden ratio
 // sq2 = square root of 2
 global.WORDS = array_mesh(array_mesh(FUNCTIONS,TYPES),array_mesh(BUILTIN,CONST));
+print(global.WORDS);
 // list of all functions, constants, built in variables and types

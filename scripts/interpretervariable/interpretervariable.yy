@@ -6,7 +6,7 @@
     "path": "folders/Objects/Interpreter.yy",
   },
   "resourceVersion": "1.0",
-  "name": "InterpreterWords",
+  "name": "InterpreterVariable",
   "tags": [],
   "resourceType": "GMScript",
 }

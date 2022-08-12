@@ -1,17 +1,23 @@
 /// Define arguments
 function expression_evaluate(text)
 {
-	// Remove whitespace and replacing constats and variables
+	// Remove whitespace and replacing constants and variables
 	text = string_replace_all(text, " ", "");
 	var vrs = string_split(text, "+");
+	print(variables);
+	print(text);
+	for (var i = 0; i < array_length(variables); i++)
+	{
+		text = string_replace(text, variables[i].name,string(variables[i].value));
+	}
+	print(text);
 	for (var i = 0; i < array_length(vrs); i++)
 	{
-		if (variable_instance_exists(cobject.id, vrs[i])) 
+		if (variable_instance_exists(cobject.id, vrs[i]) && cobject != -1) 
 		{
 			text = string_replace(text, vrs[i], variable_instance_get(cobject.id, vrs[i]));
 		}
 	}
-	print(text);
 	for (var i = 0; i < array_length(global.CONSTANTS); i++)
 	{
 		text = string_replace(text, global.CONSTANTS[i].name,string(global.CONSTANTS[i].value));
@@ -191,6 +197,16 @@ function out()
 			}
 		}	
 	}
+	else if (array_exists(variable_names, c[1]))
+	{
+		for (var i = 0; i < array_length(variables); i++)
+		{
+			if (variables[i].name == c[1]) 
+			{
+				printout(variables[i].value);
+			}
+		}
+	}
 	else printout(c[1]);
 }
 
@@ -237,22 +253,15 @@ function chg()
 	var com = string_split_ext(c[1], " ", 3);
 	var value = 0;
 	
-	if (array_length(com) == 2)
-	{
-		variable_instance_set(cobject.id, com[0], com[1]);
+	if (com[2] == ":") 
+	{	
+		value = assign_type(com[1], com[3]);
+		variable_instance_set(cobject.id, com[0], value);
 	}
-	else
+	else if (com[1] == "=>")
 	{
-		if (com[2] == ":") 
-		{	
-			value = assign_type(com[1], com[3]);
-			variable_instance_set(cobject.id, com[0], value);
-		}
-		else if (com[1] == "=>")
-		{
-			value = variable_instance_get(cobject.id, com[2]);
-			variable_instance_set(cobject.id, com[0], value);	
-		}
+		value = variable_instance_get(cobject.id, com[2]);
+		variable_instance_set(cobject.id, com[0], value);	
 	}
 }
 
@@ -284,4 +293,88 @@ function com() { }
 function hld()
 {
 	oInterpreter.hold_time = c[1];	
+}
+
+function dec()
+{
+	var v = string_split_ext(c[1], " ", 4);
+	var vname = v[0];
+	var vchg = v[1];
+	var vtyp = v[3];
+	var vval = v[4];
+	
+	if (v[2] == "=>") 
+	{
+		if (array_exists(TYPES, vtyp))
+		{
+			var value = assign_type(vtyp, vval);
+			
+			if (!array_exists(variable_names, vname))
+			{
+				array_push(variables, new Variable(vname, vchg, vtyp, value));
+				array_push(variable_names, vname);
+			}
+			//else
+			//{
+			//	var len = array_length(variables);
+
+			//	for (var i = 0; i < len; i++)
+			//	{
+			//		if (variables[i].name == vname) then variables[i].value = value;
+			//		break;
+			//	}
+			//}
+		}
+		else show_error("Type does not exist", true);
+	}
+	else show_error("No assign symbol", true);
+}
+
+function update_variables()
+{
+	for (var i = 0; i < array_length(variables); i++)
+	{
+		if (variables[i].change == "uc") then variables[i].value = 0;	
+	}
+}	
+
+function variable_set(name, type = 0, value)
+{
+	for (var i = 0; i < array_length(variables); i++)
+	{
+		if (name == variables[i].name)
+		{
+			variables[i].type = type;
+			variables[i].value = (type != 0) ? assign_type(variables[i].type, value) : value;
+			
+			break;
+		}
+	}
+}
+	
+function variable_get(name)
+{
+	for (var i = 0; i < array_length(variables); i++)
+	{
+		if (variables[i].name == name) then return variables[i].value;
+	}
+}
+
+function set()
+{
+	var cm = string_split_ext(c[1], " ", 3);
+	print(cm);
+	var arg = array_length(cm);
+	var nm = cm[0];
+	var ty = (arg == 4) ? cm[1] : 0;
+	var vl = (arg == 4) ? cm[3] : variable_get(cm[2]);
+	
+	if (cm[2] == ":") 
+	{	
+		variable_set(nm, ty, vl);
+	}
+	else if (cm[1] == "=>")
+	{
+		variable_set(nm, 0, vl);	
+	}
 }

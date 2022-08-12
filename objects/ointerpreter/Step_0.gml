@@ -1,7 +1,7 @@
 // Starting program
 if (keyboard_check_pressed(vk_f1))
 {
-	running = true
+	running = true;
 	with (oConsole)
 	{
 		lines[current_line] = line;
@@ -19,7 +19,7 @@ if (keyboard_check_pressed(vk_f1))
 	else 
 	{
 		run_times = real(code_line[1]);
-	}
+	}	
 }
 
 if (running == true)
@@ -28,6 +28,7 @@ if (running == true)
 	if (hold_time > 0) hold_time -= 1;
 	if (run_times > 0 && hold_time == 0)
 	{
+		update_variables();
 		for (var i = 1; i < array_length(code); i++)
 		{
 			if (code[i] != "")
@@ -42,6 +43,7 @@ if (running == true)
 						func = asset_get_index(func);
 						script_execute(func);
 					}
+					
 				}
 				else
 				{
@@ -62,5 +64,7 @@ if (running == true)
 			can_write = true;
 		}	
 		running = false;
-	}	
+		variables = [];
+		variable_names = [];
+	}
 }
