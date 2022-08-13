@@ -10,7 +10,7 @@
 // hld = set the time of which the code will be stopped every time it runs
 // dec = declares a variable
 // set = sets the value of a local variable
-#macro TYPES ["num", "str", "cnd", "con", "eva", "ch", "uch", ":", "=>"]
+#macro TYPES ["num", "str", "cnd", "con", "eva", "ch", "uch", ":", "=>", "="]
 // num = integer, float or double
 // str = string
 // cnd = condition value (boolean)
@@ -20,6 +20,7 @@
 // uch = unchangebale variable
 // : = used to asign a variable a value
 // => = used to asign a variable the value of another variable or assigning value to a Flexcom variable
+// = = can be used instead of => or :
 global.BUILT_IN = [
 				 new Value("obj", "None"),
 				 new Value("vrs", "None"),

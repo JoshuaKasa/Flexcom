@@ -253,12 +253,12 @@ function chg()
 	var com = string_split_ext(c[1], " ", 3);
 	var value = 0;
 	
-	if (com[2] == ":") 
+	if (com[2] == ":" || com[2] == "=") 
 	{	
 		value = assign_type(com[1], com[3]);
 		variable_instance_set(cobject.id, com[0], value);
 	}
-	else if (com[1] == "=>")
+	else if (com[1] == "=>" || com[1] == "=")
 	{
 		value = variable_instance_get(cobject.id, com[2]);
 		variable_instance_set(cobject.id, com[0], value);	
@@ -303,7 +303,7 @@ function dec()
 	var vtyp = v[3];
 	var vval = v[4];
 	
-	if (v[2] == "=>") 
+	if (v[2] == "=>" || v[2] == "=") 
 	{
 		if (array_exists(TYPES, vtyp))
 		{
@@ -369,11 +369,11 @@ function set()
 	var ty = (arg == 4) ? cm[1] : 0;
 	var vl = (arg == 4) ? cm[3] : variable_get(cm[2]);
 	
-	if (cm[2] == ":") 
+	if (cm[2] == ":" || cm[2] == "=") 
 	{	
 		variable_set(nm, ty, vl);
 	}
-	else if (cm[1] == "=>")
+	else if (cm[1] == "=>" || cm[1] == "=")
 	{
 		variable_set(nm, 0, vl);	
 	}
